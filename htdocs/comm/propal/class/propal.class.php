@@ -457,7 +457,7 @@ class Propal extends CommonObject
 
             $tabprice=calcul_price_total($qty, $pu, $remise_percent, $txtva, $txlocaltax1, $txlocaltax2, 0, $price_base_type, $info_bits, $product_type, $mysoc, $localtaxes_type, 100, $this->multicurrency_tx);
 
-            $total_ht  = $tabprice[0];
+            $total_ht  = floatval($tabprice[6]); // Fixes bug mixing total_ht and total_tva while adding a new line.
             $total_tva = $tabprice[1];
             $total_ttc = $tabprice[2];
             $total_localtax1 = $tabprice[9];
